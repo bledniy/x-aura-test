@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume{% endblock %}
+
+{% block body %}
+    <h1>Resume</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resume.id }}</td>
+            </tr>
+            <tr>
+                <th>JobTitle</th>
+                <td>{{ resume.jobTitle }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ resume.content }}</td>
+            </tr>
+            <tr>
+                <th>File</th>
+                <td>{{ resume.file }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ resume.createdAt ? resume.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ resume.updatedAt ? resume.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_resume_index') }}">back to list</a>
+
+    <a href="{{ path('app_resume_edit', {'id': resume.id}) }}">edit</a>
+
+    {{ include('resume/_delete_form.html.twig') }}
+{% endblock %}

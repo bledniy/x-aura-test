@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Resume Statistics{% endblock %}
+
+{% block body %}
+    <h1>Resume Statistics</h1>
+
+    {% if resumesWithFeedbacks %}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Job Title</th>
+                <th>Positive Feedbacks</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for resume in resumesWithFeedbacks %}
+                <tr>
+                    <td>{{ resume.jobTitle }}</td>
+                    <td>{{ resume.positiveFeedbacks }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No feedback data available.</p>
+    {% endif %}
+
+{% endblock %}
